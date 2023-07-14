@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add book</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token%}
+        <label for="">select borrower</label>
+        <select name="borrower" id="">
+            {% for i in d1 %}
+            <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select>
+        <label for="">select book</label>
+        <select name="book" id="">
+            {% for i in d2 %}
+            <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select>
+        {{form}}
+        <button type="submit">submit</button>
+
+    </form>
+</body>
+</html>
