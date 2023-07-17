@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Home</title>
 </head>
 <body>
-    home
+    <div class="container" style="margin-top: 40px;">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+          </div>
+          <ul class="nav navbar-nav">
+              <li><a href="{% url 'index' %}">Index</a></li>
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'IssueBookInstance' %}">Issue book</a></li>
+            <li><a href="{% url 'AddBookInstance' %}">Create book instance</a></li>
+            <li><a href="{% url 'AddBook' %}">add book</a></li>
+          </ul>
+        </div>
+      </nav></div>
+    <!-- <div class="container" style="margin-top:70px">
+        <center><H1>Books Available</H1></center>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in object_list %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.author}}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <p>No books yet</p>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> -->
 </body>
 </html>
