@@ -10,11 +10,11 @@ from django.urls import reverse_lazy
 
 
 def index(request):
+    
     lst = IssueBook.objects.all()
     # borrower=lst[0]
     # name=borrower.first_name + borrower.last_name
     # lst[0]=name
-
     return render(request, 'lib/index.html', {'data': lst})
 
 
@@ -23,15 +23,22 @@ def listBorrowerInfo(request, id):
     user = ExtraUserInfo.objects.get(id=id)
     # i=IssueBook.objects.all(borrower=user)
     lst = IssueBook.objects.filter(borrower_id=id)
+    # book=IssueBook.objects.get()
     return render(request, 'lib/listBorrowerInfo.html', {'data': lst, 'user': user})
 
     # else:
     #     return render(request,'lib/listBorrowerInfo.html',{'data':lst})
 
 
-def returnBook(request, username):
+def returnBook(request, username,isbn):
     if request.method == 'POST':
-        book=BookInstance.objects.get()
+        b=BookInstance.objects.get(isbn=isbn)
+        user=User.objects.get(username=username)
+        b.is_borrowed='false'
+        x=IssueBook.objects.get(book_id=b.isbn)
+        x.delete()
+        b.save()
+        return redirect('listBorrowerInfo',user.id)
     else:
         user = User.objects.get(username=username)
         return render(request, 'lib/returnbook.html', {'username': user.username})

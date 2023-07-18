@@ -10,7 +10,7 @@ urlpatterns = [
     path('listbooks/',ListBooks.as_view(),name='ListBooks'),
     path('issuebookinstance/',issueBookInstance,name='IssueBookInstance'),
     path('borrowerInfo/<int:id>',listBorrowerInfo,name='listBorrowerInfo'),
-    path('returnBook/<username>',returnBook,name='returnBook')
+    path('returnBook/<username>/<isbn>',returnBook,name='returnBook')
     
 ]
 

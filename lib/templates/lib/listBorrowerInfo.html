@@ -44,7 +44,7 @@
                 <td>{{i.book_id}}</td>
                 <td>{{i.issue_date}}</td>
                 <td>{{i.return_date}}</td>
-                <td><a href="{% url 'returnBook' %}">Return book</a></td>
+                <td><a href="{% url 'returnBook' user.user.username i.book_id %}">Return book</a></td>
             </tr>
             {% endfor %}
         </tbody>
